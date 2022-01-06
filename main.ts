@@ -13,6 +13,18 @@
  * 
  * })
  */
+bluetooth.onBluetoothConnected(function () {
+    basic.showLeds(`
+        . . # # .
+        # . # . #
+        . # # # .
+        # . # . #
+        . . # # .
+        `)
+})
+bluetooth.onBluetoothDisconnected(function () {
+    basic.showIcon(IconNames.No)
+})
 input.onButtonPressed(Button.A, function () {
     RingbitCar.freestyle(-10, 10)
 })
@@ -27,12 +39,12 @@ RingbitCar.init_wheel(AnalogPin.P1, AnalogPin.P2)
 loops.everyInterval(1000, function () {
     deltaC = lastCs / CsCount
     serial.writeValue("D", deltaC)
-    // radio.sendValue("D", deltaC)
+    bluetooth.uartWriteValue("D", deltaC)
     CsCount = 0
     lastCs = 0
 })
-// radio.sendValue("C", input.compassHeading())
 loops.everyInterval(100, function () {
     CsCount += 1
     lastCs += input.compassHeading()
+    bluetooth.uartWriteValue("C", input.compassHeading())
 })
