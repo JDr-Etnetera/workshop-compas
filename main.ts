@@ -23,7 +23,7 @@ loops.everyInterval(1000, function () {
     CsCount = 0
     lastCs = 0
 })
-loops.everyInterval(100, function () {
+loops.everyInterval(50, function () {
     CsCount += 1
     lastCs += input.compassHeading()
     radio.sendValue("C", input.compassHeading())
