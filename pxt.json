@@ -1,13 +1,13 @@
 {
-    "name": "WorkshopKH21",
+    "name": "Workshop - Compass with RadioTransmiter",
     "description": "",
     "dependencies": {
         "core": "*",
-        "radio": "*",
         "microphone": "*",
         "RingbitCar": "github:tinkertanker/pxt-ringbitcar#v3.1.3",
         "pxt-kitronik-robotics-board": "github:kitronikltd/pxt-kitronik-robotics-board#v0.0.5",
-        "servo": "*"
+        "servo": "*",
+        "bluetooth": "*"
     },
     "files": [
         "main.blocks",
